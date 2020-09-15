@@ -9,8 +9,10 @@ class Graph:
     def getUnder(self, modifier):
         get_under_counter = 0
         get_under_return = ''
+
         for i in self.x_range_list:
             get_under_counter += 1
+
         get_under_counter *= 3
         get_under_counter -= 1
 
@@ -22,8 +24,10 @@ class Graph:
     def getSpace(self):
         get_space_counter = 0
         get_space_return = ''
+        
         for i in self.x_range_list:
             get_space_counter += 1
+
         get_space_counter *= 3 
         get_space_counter -= 2
 
@@ -67,8 +71,11 @@ class Graph:
 
     def show(self):
         print(self.top_bar)
+
         for item in reversed(self.y_range_list):
             print(item)
+
         for item in self.x_range_list:
             self.bottom_number += item
+
         print(self.bottom_number)
