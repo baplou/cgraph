@@ -44,11 +44,26 @@ class Graph:
         self.top_bar += '  ' + self.getUnder(0) + '_'
 
     def plot(self, x_pos, y_pos):
-        '''
-        This must change the self.y_range_list according to x_pos and y_pos
-        This will make it possible to plot multiple points
-        '''
-        pass
+        list_item = self.y_range_list[y_pos]
+        replace_line = ''
+        plot_counter = 0
+        plot_counter = x_pos * 3 + 6 - 1
+
+        for i in range(plot_counter):
+            replace_line += list_item[i]
+
+        replace_line += 'X'
+
+        while True:
+            if plot_counter >= len(list_item) - 2:
+                break
+            else:
+                plot_counter += 1
+                replace_line += list_item[plot_counter]
+
+        replace_line += '|'
+
+        self.y_range_list[y_pos] = replace_line
 
     def show(self):
         print(self.top_bar)
@@ -57,8 +72,3 @@ class Graph:
         for item in self.x_range_list:
             self.bottom_number += item
         print(self.bottom_number)
-
-if __name__ == '__main__':
-    g = Graph()
-    g.setup(6,9)
-    g.show()
