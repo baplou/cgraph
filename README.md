@@ -13,3 +13,8 @@ You must `.setup()` the graph beafore showing or plotting.
 Right now this only works with integers and single digits.
 
 **If you plot something thats out of reach of the graph borders the program will throw an error.**
+
+* **Things to add in the future**
+  * titles for x and y borders
+  * compatability with double digits
+  * compatability with floats
