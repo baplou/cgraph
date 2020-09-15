@@ -3,8 +3,7 @@ class Graph:
         self.top_bar = ''
         self.y_range_list = []
         self.x_range_list = ['   ']
-
-        self.bottom_number = ''
+        self.bottom_numberline = ''
 
     def getUnder(self, modifier):
         get_under_counter = 0
@@ -76,6 +75,6 @@ class Graph:
             print(item)
 
         for item in self.x_range_list:
-            self.bottom_number += item
+            self.bottom_numberline += item
 
-        print(self.bottom_number)
+        print(self.bottom_numberline)
