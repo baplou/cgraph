@@ -37,6 +37,7 @@ class Graph:
 
     def setup(self, x_range, y_range):
         '''
+        - Maybe change the whole structure of the object
         Have a function that returns how mnay spaces should be added
         depending on the len(x_range) and len(y_range)
         This should make it work with any integer
@@ -53,6 +54,7 @@ class Graph:
 
     def plot(self, x_pos, y_pos):
         '''
+        - Maybe change the whole structure of the object
         Have a function that returns how mnay spaces should be added
         depending on the len(x_range) and len(y_range)
         This should make it work with any integer
