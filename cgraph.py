@@ -36,6 +36,11 @@ class Graph:
         return get_space_return
 
     def setup(self, x_range, y_range):
+        '''
+        Have a function that returns how mnay spaces should be added
+        depending on the len(x_range) and len(y_range)
+        This should make it work with any integer
+        '''
         for i in range(x_range + 1):
             self.x_range_list.append('  ' + str(i))
 
@@ -47,6 +52,11 @@ class Graph:
         self.top_bar += '  ' + self.getUnder(0) + '_'
 
     def plot(self, x_pos, y_pos):
+        '''
+        Have a function that returns how mnay spaces should be added
+        depending on the len(x_range) and len(y_range)
+        This should make it work with any integer
+        '''
         list_item = self.y_range_list[y_pos]
         replace_line = ''
         plot_counter = 0
