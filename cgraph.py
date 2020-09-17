@@ -90,3 +90,9 @@ class Graph:
             self.bottom_numberline += item
 
         print(self.bottom_numberline)
+
+if __name__ == '__main__':
+  g = Graph()
+  g.setup(9,9)
+  g.plot(8,8)
+  g.show()
