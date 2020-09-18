@@ -99,6 +99,7 @@ class Graph:
 
         print(self.bottom_numberline)
 
+# Testing
 if __name__ == '__main__':
   g = Graph()
   g.setup(10,9)
