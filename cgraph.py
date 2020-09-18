@@ -5,6 +5,7 @@ class Graph:
         self.x_range_list = ['   ']
         self.bottom_numberline = ''
 
+    # Change/ Delete me 
     def getUnder(self, modifier):
         get_under_counter = 0
         get_under_return = ''
@@ -12,7 +13,7 @@ class Graph:
         for i in self.x_range_list:
             get_under_counter += 1
 
-        get_under_counter *= 3
+        get_under_counter *= 3 # Fix me 
         get_under_counter -= 1
 
         for i in range(get_under_counter - modifier):
@@ -20,8 +21,9 @@ class Graph:
 
         return get_under_return
 
+    # Change/Delete me
     def getSpace(self):
-        get_space_counter = 0
+        get_space_counter = 1
         get_space_return = ''
         
         for i in self.x_range_list:
@@ -37,28 +39,34 @@ class Graph:
 
     def setup(self, x_range, y_range):
         '''
-        - Maybe change the whole structure of the object
-        Have a function that returns how mnay spaces should be added
-        depending on the len(x_range) and len(y_range)
-        This should make it work with any integer
+        Make new system for getting spaces and underlines
         '''
+        # Setting up the graph
         for i in range(x_range + 1):
             self.x_range_list.append('  ' + str(i))
 
         for i in range(y_range + 1):
-            self.y_range_list.append(str(i) + ' |' + self.getSpace() + '|')
+            self.y_range_list.append(str(i) + ' |' + self.getSpace() + '|') # self.getSpace() is multiplying the space added by two
 
-        self.y_range_list[0] = '0 |' + self.getUnder(1) + '|'
+        # Working with numbers that are more than 2 digits
+        for i in range(len(str(x_range))):
+            self.x_range_list.append(' ')
 
-        self.top_bar += '  ' + self.getUnder(0) + '_'
+        '''
+        for i in range(len(str(y_range)) - 1):
+            self.y_range_list.append(' ') 
+        '''
+
+        '''
+        The problem is that self.getUnder is multipliyng the space
+        added by 3
+        '''
+        
+        self.y_range_list[0] = '0 |' + self.getUnder(1) + '|' # Change/delete self.getUnder
+
+        self.top_bar += '  ' + self.getUnder(0) + '_' # Change/delete self.getUnder
 
     def plot(self, x_pos, y_pos):
-        '''
-        - Maybe change the whole structure of the object
-        Have a function that returns how mnay spaces should be added
-        depending on the len(x_range) and len(y_range)
-        This should make it work with any integer
-        '''
         list_item = self.y_range_list[y_pos]
         replace_line = ''
         plot_counter = 0
@@ -93,6 +101,5 @@ class Graph:
 
 if __name__ == '__main__':
   g = Graph()
-  g.setup(9,9)
-  g.plot(8,8)
+  g.setup(10,9)
   g.show()
