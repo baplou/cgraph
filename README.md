@@ -17,3 +17,5 @@ For printing the graph use `.show()`.
   * compatability with double digits
   * compatability with floats
   * Bar graphs (maybe)
+
+note: still spaguetti code smh

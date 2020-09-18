@@ -1,3 +1,6 @@
+'''
+Still spaguetti code smh
+'''
 class Graph:
     def __init__(self):
         self.top_bar = ''
@@ -102,5 +105,5 @@ class Graph:
 # Testing
 if __name__ == '__main__':
   g = Graph()
-  g.setup(10,9)
+  g.setup(9,9)
   g.show()
