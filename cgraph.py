@@ -12,6 +12,7 @@ class Graph:
         self.max_length = None
 
         self.x_space = '  '
+        self.top_bar_counter = 0
 
     def setMedium(self, number):
         self.max_length = number
@@ -40,6 +41,8 @@ class Graph:
             self.y_range_list.append(y.return_value)
             self.setMedium(y_range)
 
+        self.top_bar_counter = x_range * 3
+
         for i in range(len(self.y_range_list)):
             line = self.y_range_list[i]
             replacement = ''
@@ -52,7 +55,13 @@ class Graph:
                     else:
                         replacement += ' '
             replacement += line[-1]
+            self.top_bar_counter += len(line) - self.top_bar_counter + 1
             self.y_range_list[i] = replacement
+
+        for i in range(len(str(self.max_length)) + 2):
+            self.top_bar += ' '
+        for i in range(self.top_bar_counter):
+            self.top_bar += '_'
 
     def plot(self, x_pos, y_pos):
         list_item = self.y_range_list[y_pos]
@@ -77,15 +86,8 @@ class Graph:
     
     def show(self):
         print(self.top_bar)
-
-        for item in reversed(self.y_range_list):
-            print(item)
-
-        for item in self.x_range_list:
-            self.bottom_numberline += item
-
+        for i in reversed(self.y_range_list):
+            print(i)
+        for i in self.x_range_list:
+            self.bottom_numberline += i
         print(self.bottom_numberline)
-
-if __name__ == '__main__':
-    g = Graph()
-    g.setup(23,10)
