@@ -1,73 +1,40 @@
-'''
-Still spaguetti code smh
-'''
+from ycor import Ycor
+from xcor import Xcor
+
 class Graph:
     def __init__(self):
         self.top_bar = ''
-        self.y_range_list = []
-        self.x_range_list = ['   ']
         self.bottom_numberline = ''
 
-    # Change/ Delete me 
-    def getUnder(self, modifier):
-        get_under_counter = 0
-        get_under_return = ''
+        self.y_range_list = []
+        self.x_range_list = []
 
-        for i in self.x_range_list:
-            get_under_counter += 1
+        self.medium_space = ''
+        self.maximum_length = None
 
-        get_under_counter *= 3 # Fix me 
-        get_under_counter -= 1
+    def setMedium(self, number):
+        self.maximum_length = number
+        for i in range(len(str(number))):
+            self.medium_space += ' '
 
-        for i in range(get_under_counter - modifier):
-            get_under_return += '_'
+    def changeMedium(self, number):
+        self.medium_space = ''
+        counter = len(str(self.maximum_length)) - len(str(number)) + 1
 
-        return get_under_return
-
-    # Change/Delete me
-    def getSpace(self):
-        get_space_counter = 1
-        get_space_return = ''
-        
-        for i in self.x_range_list:
-            get_space_counter += 1
-
-        get_space_counter *= 3 
-        get_space_counter -= 2
-
-        for i in range(get_space_counter):
-            get_space_return += ' '
-
-        return get_space_return
+        for i in range(counter):
+            self.medium_space += ' '
 
     def setup(self, x_range, y_range):
-        '''
-        Make new system for getting spaces and underlines
-        '''
-        # Setting up the graph
-        for i in range(x_range + 1):
-            self.x_range_list.append('  ' + str(i))
+        self.setMedium(y_range)
 
         for i in range(y_range + 1):
-            self.y_range_list.append(str(i) + ' |' + self.getSpace() + '|') # self.getSpace() is multiplying the space added by two
+            self.changeMedium(i)
+            y = Ycor(x_range, i, self.medium_space)
+            self.y_range_list.append(y)
+            self.setMedium(y_range)
 
-        # Working with numbers that are more than 2 digits
-        for i in range(len(str(x_range))):
-            self.x_range_list.append(' ')
-
-        '''
-        for i in range(len(str(y_range)) - 1):
-            self.y_range_list.append(' ') 
-        '''
-
-        '''
-        The problem is that self.getUnder is multipliyng the space
-        added by 3
-        '''
-        
-        self.y_range_list[0] = '0 |' + self.getUnder(1) + '|' # Change/delete self.getUnder
-
-        self.top_bar += '  ' + self.getUnder(0) + '_' # Change/delete self.getUnder
+        for line in reversed(self.y_range_list):
+            print(line)
 
     def plot(self, x_pos, y_pos):
         list_item = self.y_range_list[y_pos]
@@ -102,8 +69,6 @@ class Graph:
 
         print(self.bottom_numberline)
 
-# Testing
 if __name__ == '__main__':
   g = Graph()
-  g.setup(9,9)
-  g.show()
+  g.setup(9,10)
