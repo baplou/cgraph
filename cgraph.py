@@ -1,5 +1,4 @@
 from ycor import Ycor
-from xcor import Xcor
 
 class Graph:
     def __init__(self):
@@ -10,16 +9,18 @@ class Graph:
         self.x_range_list = []
 
         self.medium_space = ''
-        self.maximum_length = None
+        self.max_length = None
+
+        self.x_space = '  '
 
     def setMedium(self, number):
-        self.maximum_length = number
+        self.max_length = number
         for i in range(len(str(number))):
             self.medium_space += ' '
 
     def changeMedium(self, number):
         self.medium_space = ''
-        counter = len(str(self.maximum_length)) - len(str(number)) + 1
+        counter = len(str(self.max_length)) - len(str(number)) + 1
 
         for i in range(counter):
             self.medium_space += ' '
@@ -27,19 +28,26 @@ class Graph:
     def setup(self, x_range, y_range):
         self.setMedium(y_range)
 
+        for i in range(len(str(self.max_length)) + 3):
+            self.x_range_list.append(' ')
+
+        for i in range(x_range):
+            self.x_range_list.append(self.x_space + str(i))
+
         for i in range(y_range + 1):
             self.changeMedium(i)
             y = Ycor(x_range, i, self.medium_space)
-            self.y_range_list.append(y)
+            self.y_range_list.append(y.return_value)
             self.setMedium(y_range)
 
-        for line in reversed(self.y_range_list):
-            print(line)
+        '''
+        Loop through y_range_list and add a space
+        based on the length of self.max_length
+        '''
 
     def plot(self, x_pos, y_pos):
         list_item = self.y_range_list[y_pos]
         replace_line = ''
-        plot_counter = 0
         plot_counter = x_pos * 3 + 6 - 1
 
         for i in range(plot_counter):
@@ -57,7 +65,7 @@ class Graph:
         replace_line += '|'
 
         self.y_range_list[y_pos] = replace_line
-
+    
     def show(self):
         print(self.top_bar)
 
@@ -68,7 +76,3 @@ class Graph:
             self.bottom_numberline += item
 
         print(self.bottom_numberline)
-
-if __name__ == '__main__':
-  g = Graph()
-  g.setup(9,10)

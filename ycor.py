@@ -19,6 +19,3 @@ class Ycor:
             self.space += self.placeholder
 
         self.return_value = ' ' + str(self.y_num) + self.medium_space + '|' + self.space + '|'
-
-    def __repr__(self):
-        return self.return_value
