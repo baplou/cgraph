@@ -28,10 +28,10 @@ class Graph:
     def setup(self, x_range, y_range):
         self.setMedium(y_range)
 
-        for i in range(len(str(self.max_length)) + 3):
+        for i in range(len(str(self.max_length)) + 1):
             self.x_range_list.append(' ')
 
-        for i in range(x_range):
+        for i in range(x_range + 1):
             self.x_range_list.append(self.x_space + str(i))
 
         for i in range(y_range + 1):
@@ -40,10 +40,19 @@ class Graph:
             self.y_range_list.append(y.return_value)
             self.setMedium(y_range)
 
-        '''
-        Loop through y_range_list and add a space
-        based on the length of self.max_length
-        '''
+        for i in range(len(self.y_range_list)):
+            line = self.y_range_list[i]
+            replacement = ''
+            for x in range(len(line) - 1):
+                replacement += line[x]
+            for y in range(x_range):
+                for z in range(len(str(y)) - 1):
+                    if i == 0:
+                        replacement += '_'
+                    else:
+                        replacement += ' '
+            replacement += line[-1]
+            self.y_range_list[i] = replacement
 
     def plot(self, x_pos, y_pos):
         list_item = self.y_range_list[y_pos]
@@ -76,3 +85,7 @@ class Graph:
             self.bottom_numberline += item
 
         print(self.bottom_numberline)
+
+if __name__ == '__main__':
+    g = Graph()
+    g.setup(23,10)

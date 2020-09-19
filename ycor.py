@@ -15,6 +15,7 @@ class Ycor:
             self.placeholder = '_'
 
         self.x_length *= 3
+        self.x_length += 1 
         for i in range(self.x_length):
             self.space += self.placeholder
 
