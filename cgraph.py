@@ -55,7 +55,8 @@ class Graph:
 
         for i in range(len(str(self.max_length)) + 2):
             self.top_bar += ' '
-        for i in range(len(self.y_range_list[0]) - 6):
+        difference = len(str(self.max_length)) + 4
+        for i in range(len(self.y_range_list[0]) - difference):
             self.top_bar_counter += 1
         for i in range(self.top_bar_counter + 2):
             self.top_bar += '_'
