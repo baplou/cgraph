@@ -11,8 +11,3 @@ For printing the graph use `.show()`.
   * You must `.setup()` the graph before showing or plotting.
   * Right now this only works with integers and single digits.
   * If you plot something thats out of reach of the graph borders the program will throw an error.
-
-* **Upcoming features**
-  * titles for x and y borders
-  * compatability with floats
-  * Bar graphs (maybe)
