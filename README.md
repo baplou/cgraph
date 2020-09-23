@@ -9,5 +9,5 @@ For printing the graph use `.show()`.
 * **Things to keep in mind**
   * You **can** plot multiple points in the graph.
   * You must `.setup()` the graph before showing or plotting.
-  * Right now this only works with integers and single digits.
+  * Right now this only works with integers.
   * If you plot something thats out of reach of the graph borders the program will throw an error.
