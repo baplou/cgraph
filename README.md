@@ -1,10 +1,18 @@
-## A graph system for command line tools in python
+## cGraph
 
-This is matplotlib for command line tools. It allows you to make a basic xy graph for a terminal interface instead of a GUI.
+This allows you to make graph for your command line tools.
+It allows you to make a basic xy graph for a terminal interface instead of a GUI.
 
-For defining the xy borders of the graph use `.setup(x,y)`.
+For making a coordinate graph use the object CoordinateGraph().
 For plotting a point in the graph use `.plot(x,y)`.
 For printing the graph use `.show()`.
+
+Example:
+```python
+graph = CoordinateGraph(13, 10) # 13 width, 10 height
+graph.plot(6,7) # plotting a point in (6,7)
+graph.show()
+```
 
 ### Things to keep in mind
 * You **can** plot multiple points in the graph.
@@ -14,6 +22,8 @@ For printing the graph use `.show()`.
 
 ### TODO
 * Clean up code
+* Write unit tests
+* add for pip installation
 * Titles for graphs
 * Bar graphs
 * Support for decimal numbers
