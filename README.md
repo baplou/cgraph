@@ -6,8 +6,13 @@ For defining the xy borders of the graph use `.setup(x,y)`.
 For plotting a point in the graph use `.plot(x,y)`.
 For printing the graph use `.show()`.
 
-* **Things to keep in mind**
-  * You **can** plot multiple points in the graph.
-  * You must `.setup()` the graph before showing or plotting.
-  * Right now this only works with integers.
-  * If you plot something thats out of reach of the graph borders the program will throw an error.
+### Things to keep in mind
+* You **can** plot multiple points in the graph.
+* You must `.setup()` the graph before showing or plotting.
+* Right now this only works with integers.
+* If you plot something thats out of reach of the graph borders the program will throw an error.
+
+### TODO
+* Titles for graphs
+* Bar graphs
+* Support for decimal numbers
