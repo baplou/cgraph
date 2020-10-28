@@ -1,7 +1,14 @@
 from ycor import Ycor
 
-class Graph:
-  def __init__(self):
+"""
+Problems
+  1. A lot of "counters"
+  2. 10 million for loops
+  3. not pretty
+"""
+
+class CoordinateGraph:
+  def __init__(self, x, y):
     self.top_bar = ''
     self.bottom_numberline = ''
     self.y_range_list = []
@@ -12,9 +19,11 @@ class Graph:
 
     self.x_space = '  '
     self.top_bar_counter = 0
+    self.setup(x, y)
 
   def setMedium(self, number):
     self.max_length = number
+
     for i in range(len(str(number))):
       self.medium_space += ' '
 
@@ -30,6 +39,7 @@ class Graph:
 
     for i in range(len(str(self.max_length)) + 1):
       self.x_range_list.append(' ')
+
     for i in range(x_range + 1):
       self.x_range_list.append(self.x_space + str(i))
 
@@ -50,14 +60,17 @@ class Graph:
             replacement += '_'
           else:
             replacement += ' '
+
       replacement += line[-1]
       self.y_range_list[i] = replacement
 
     for i in range(len(str(self.max_length)) + 2):
       self.top_bar += ' '
+
     difference = len(str(self.max_length)) + 4
     for i in range(len(self.y_range_list[0]) - difference):
       self.top_bar_counter += 1
+
     for i in range(self.top_bar_counter + 2):
       self.top_bar += '_'
 
@@ -65,15 +78,19 @@ class Graph:
     line = self.y_range_list[y_pos]
     plot_counter = x_pos * 3
     replacement = ''
+
     for y in range(x_pos):
       for i in range(len(str(y)) - 1):
         plot_counter += 1
+
     plot_counter += 6 - 1
     for i in range(plot_counter):
       replacement += line[i]
+
     replacement += 'X'
     for i in range(len(line) - len(replacement) - 1):
       replacement += ' '
+
     replacement += '|'
     self.y_range_list[y_pos] = replacement
   

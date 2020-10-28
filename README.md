@@ -1,4 +1,4 @@
-## A xy graph for command line tools in python
+## A graph system for command line tools in python
 
 This is matplotlib for command line tools. It allows you to make a basic xy graph for a terminal interface instead of a GUI.
 
@@ -13,6 +13,7 @@ For printing the graph use `.show()`.
 * If you plot something thats out of reach of the graph borders the program will throw an error.
 
 ### TODO
+* Clean up code
 * Titles for graphs
 * Bar graphs
 * Support for decimal numbers
