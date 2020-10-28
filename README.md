@@ -11,7 +11,7 @@ Example:
 ```python
 graph = CoordinateGraph(13, 10) # 13 width, 10 height
 graph.plot(6,7) # plotting a point in (6,7)
-graph.show()
+graph.show() # printing the graph
 ```
 
 ### Things to keep in mind
