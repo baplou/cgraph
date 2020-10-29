@@ -119,8 +119,3 @@ class CoordinateGraph:
       self.bottom_numberline += i
 
     print(self.bottom_numberline)
-
-if __name__ == "__main__":
-  g = CoordinateGraph(13,13)
-  g.plot(9,9)
-  g.show()
