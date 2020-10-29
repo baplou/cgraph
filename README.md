@@ -1,5 +1,4 @@
-## cGraph
-
+# cgraph
 This allows you to make graph for your command line tools.
 It allows you to make a basic xy graph for a terminal interface instead of a GUI.
 
@@ -21,9 +20,7 @@ graph.show() # printing the graph
 * If you plot something thats out of reach of the graph borders the program will throw an error.
 
 ### TODO
-* Clean up code
 * Write unit tests
-* add for pip installation
-* Titles for graphs
+* Add pip installation
 * Bar graphs
 * Support for decimal numbers
