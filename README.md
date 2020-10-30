@@ -15,6 +15,12 @@ graph.plot(6,7) # plotting a point in (6,7)
 graph.show() # printing the graph
 ```
 
+### Things to keep in mind
+* You **can** plot multiple points in the graph.
+* You must `.setup()` the graph before showing or plotting.
+* Right now this only works with integers.
+* If you plot something thats out of reach of the graph borders the program will throw an error.
+
 ### Bar Graph
 The "BarGraph" object takes in 5 arguments; the lowest number possible in your data,
 the highest number possible in your data, a list of all the numbers (your data), a
@@ -53,12 +59,6 @@ b.show() # printing the graph
 
 Output:
 ![](https://github.com/baplou/cgraph/blob/master/images/example-nocolor.png?raw=true)
-
-### Things to keep in mind
-* You **can** plot multiple points in the graph.
-* You must `.setup()` the graph before showing or plotting.
-* Right now this only works with integers.
-* If you plot something thats out of reach of the graph borders the program will throw an error.
 
 ### TODO
 * Write unit tests
