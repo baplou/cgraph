@@ -1,7 +1,7 @@
 ## cgraph
 This allows you to make graphs for your command line tools.
 
-### x y graph
+### X Y Graph
 Makes it possible for you to make a basic xy graph for a terminal interface instead of a GUI.
 
 For making a coordinate graph use the object CoordinateGraph().
@@ -15,18 +15,24 @@ graph.plot(6,7) # plotting a point in (6,7)
 graph.show() # printing the graph
 ```
 
-### Bar graph
-The BarGraph object takes in 5 arguments; the lowest number possible in your data,
+### Bar Graph
+The "BarGraph" object takes in 5 arguments; the lowest number possible in your data,
 the highest number possible in your data, a list of all the numbers (your data), a
 list of all your labels for each number, the number of spaces that are used for the 
 maximum number/value in your data, and (this is a optional parameter) a boolean 
 representing if you want colored output or not.
 
+Source code for initializing the object:
+```python
+class BarGraph:
+  def __init__(self, lowest_num, highest_num, nums, labels, max_spaces, color=True):
+```
+
 Color
 
 The colored output is done using [ASCII escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
-An example using grades (A = 6, B = 5, and so on). There are no + or - in the grades as to
+An example using school grades (A = 6, B = 5, and so on). There are no + or - in the grades as to
 not make this example too complicated.
 
 With color:
@@ -37,6 +43,7 @@ b.show() # printing the graph
 
 Output:
 ![](https://github.com/baplou/cgraph/blob/master/images/example-color.png?raw=true)
+
 
 Without color:
 ```python
