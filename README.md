@@ -63,5 +63,4 @@ Output:
 ### TODO
 * Write unit tests
 * Add pip installation
-* Bar graphs
 * Support for decimal numbers
