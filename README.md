@@ -1,10 +1,11 @@
 ## cgraph
 This allows you to make graphs for your command line tools.
 
-### X Y Graph
+### Coordinate Plane Graph
 Makes it possible for you to make a basic xy graph for a terminal interface instead of a GUI.
 
-For making a coordinate graph use the object CoordinateGraph().
+For making a coordinate graph use the object `CoordinateGraph(width, height)`.
+The `width` and `height` arguments are the width and height of the graph you want to create.
 For plotting a point in the graph use `.plot(x,y)`.
 For printing the graph use `.show()`.
 
@@ -22,7 +23,7 @@ graph.show() # printing the graph
 * If you plot something thats out of reach of the graph borders the program will throw an error.
 
 ### Bar Graph
-The "BarGraph" object takes in 5 arguments; the lowest number possible in your data,
+The `BarGraph` object takes in 5 arguments; the lowest number possible in your data,
 the highest number possible in your data, a list of all the numbers (your data), a
 list of all your labels for each number, the number of spaces that are used for the 
 maximum number/value in your data, and (this is a optional parameter) a boolean 
