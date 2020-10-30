@@ -28,14 +28,14 @@ class BarGraph:
   def __init__(self, lowest_num, highest_num, nums, labels, max_spaces, color=True):
 ```
 
-Color
+### Color
 
 The colored output is done using [ASCII escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
 An example using school grades (A = 6, B = 5, and so on). There are no + or - in the grades as to
 not make this example too complicated.
 
-With color:
+#### With Color
 ```python
 b = BarGraph(1, 6, [6, 4, 5, 6], ["Math", "Science", "English", "PE"], 50) # making the graph
 b.show() # printing the graph
@@ -45,7 +45,7 @@ Output:
 ![](https://github.com/baplou/cgraph/blob/master/images/example-color.png?raw=true)
 
 
-Without color:
+#### Without color
 ```python
 b = BarGraph(1, 6, [6, 4, 5, 6], ["Math", "Science", "English", "PE"], 50, False) # making the graph
 b.show() # printing the graph
