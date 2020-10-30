@@ -89,5 +89,7 @@ class BarGraph:
       return True
 
 if __name__ == "__main__":
-  b = BarGraph(1, 7, [7, 4, 5, 6], ["Math", "Science", "English", "PE"], 50)
-  b.show()
+  print('')
+  b = BarGraph(1, 6, [6, 4, 5, 6], ["Math", "Science", "English", "PE"], 50, False)
+  b.show() # printing the graph
+  print('')
