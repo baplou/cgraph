@@ -36,7 +36,7 @@ b.show() # printing the graph
 ```
 
 Output:
-![](./images/example-color.png)
+![](https://github.com/baplou/cgraph/blob/master/images/example-color.png?raw=true)
 
 Without color:
 ```python
@@ -45,7 +45,7 @@ b.show() # printing the graph
 ```
 
 Output:
-![](./images/example-nocolor.png)
+![](https://github.com/baplou/cgraph/blob/master/images/example-nocolor.png?raw=true)
 
 ### Things to keep in mind
 * You **can** plot multiple points in the graph.
