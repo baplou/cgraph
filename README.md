@@ -16,7 +16,7 @@ graph.plot(6,7) # plotting a point in (6,7)
 graph.show() # printing the graph
 ```
 
-### Things to keep in mind
+#### Things to keep in mind
 * You **can** plot multiple points in the graph.
 * You must `.setup()` the graph before showing or plotting.
 * Right now this only works with integers.
@@ -60,6 +60,20 @@ b.show() # printing the graph
 
 Output:
 ![](https://github.com/baplou/cgraph/blob/master/images/example-nocolor.png?raw=true)
+
+### Instalation (right now)
+```
+user@computer:~/project-name$ git clone https://github.com/baplou/command-line-graph.git
+user@computer:~/project-name$ mv command-line-graph/cgraph .
+user@computer:~/project-name$ rm -rf command-line-graph
+user@computer:~/project-name$ ls
+file.py cgraph
+```
+Then, inside file.py write:
+```python
+from cgraph.bar import BarGraph # importing bar graph
+from cgraph.graph import CoordinateGraph # import coordinate plane graph
+```
 
 ### TODO
 * Write unit tests
