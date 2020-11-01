@@ -27,7 +27,7 @@ class BarGraph:
 
     self.error_check()
     if self.run:
-        self.setup()
+      self.setup()
 
   def error_check(self):
     # incorrect argument type errors checking
@@ -102,9 +102,6 @@ class BarGraph:
 
     # printing the errors to the user
     if self.error_counter > 0:
-      print("------------------------------------------------------------------------")
-      print(f"{self.error_counter} errors generated")
-      print("------------------------------------------------------------------------")
       self.run = False
 
   def setup(self):
@@ -137,8 +134,9 @@ class BarGraph:
         self.lines[i] += f" {float(self.nums[i])}"
 
   def show(self):
-    for line in self.lines:
-      print(line)
+    if self.run:
+      for line in self.lines:
+        print(line)
       
   @staticmethod
   def str_char_per_num(max_spaces, highest_num, lowest_num):
@@ -163,7 +161,4 @@ class BarGraph:
     if number % 2 == 0:
       return False
     else:
-      return True
-
-if __name__ == "__main__":
-  nb = BarGraph(1, 7, ["this should be int", 2, 3, 5], [4832094, "Science", "Humanities", "English"], 20, "this should be boolean")
+     return True
