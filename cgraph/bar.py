@@ -97,7 +97,7 @@ class BarGraph:
 
       # how many characters to fill each line with
       # scpn is defined above
-      for x in range(int(self.nums[i])):
+      for x in range(self.nums[i]):
         self.lines[i] += scpn
 
       # adding the final number for each line
