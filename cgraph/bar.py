@@ -21,23 +21,61 @@ class BarGraph:
     self.setup()
 
   def error_check(self):
+    # incorrect type checking
+    if type(self.lowest_num) is not int or float:
+      print(f"cgraph error: {self.lowest_num} must be type int or type float.")
+      quit()
+
+    if type(self.highest_num) is not int or float:
+      print(f"cgraph error: {self.highest_num} must be type int or type float.")
+      quit()
+
+    if type(self.nums) is not list:
+      print(f"cgraph error: {self.nums} must be type list.")
+      quit()
+
+    for num in self.nums:
+      if type(num) is not int or float:
+        print(f"cgraph error: {num} must be type int or type float.")
+        quit()
+
+    if type(self.lines) is not list:
+      print(f"cgraph error: {self.lines} must be type list.")
+      quit()
+
+    for label in self.lines:
+      if type(label) is not str:
+        print(f"cgraph error: {label} must be type str.")
+        quit()
+
+    if type(self.max_spaces) is not int:
+      print("cgraph error: {self.max_spaces} must be type int.")
+      quit()
+
+    if type(self.color) is not bool:
+      print("cgraph error: {self.color} must be type bool.")
+      quit()
+
+    # more specific error checking
     if len(self.nums) != len(self.lines):
-      print("cgraph error: labels list and numbers list must contain the same number of items")
+      print("cgraph error: labels list and numbers list must must be the same length.")
       quit()
     
     for num in self.nums:
       if num > self.highest_num:
-        print("cgraph error: number has to be equal to or less than the highest number argument")
+        print("cgraph error: number must be equal to or less than the highest number argument.")
         quit()
 
       elif num < self.lowest_num:
-        print("cgraph error: number has to be equal to or more than the lowest number argument")
+        print("cgraph error: number must be equal to or more than the lowest number argument.")
         quit()
 
-    for label in self.lines:
-      if type(label) == "<class 'int'>":
-        print"cgraph error: type(label) cannot be integer")
-        quit()
+    if self.lowest_num > self.highest_num:
+      print("cgraph error: lowest number argument cannot be larger than highest number argument.")
+      quit()
+
+    if self.max_spaces < self.highest_num:
+      print("cgraph error: the maximum amount of spaces cannot be smaller than the highest number possible.")
 
   def setup(self):
     label_max_length = self.longest_label(self.lines)
@@ -98,5 +136,5 @@ class BarGraph:
       return True
 
 if __name__ == "__main__":
-    b = BarGraph(1, 7, [5, 6, 6, 7], ["Math", "English", "Spanish", 34], 70)
+    b = BarGraph(1, 7, "yes", ["Math", "English", "Spanish", "Humanities"], 70)
     b.show()
