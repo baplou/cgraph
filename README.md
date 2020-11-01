@@ -82,6 +82,3 @@ $ cd command-line-graph
 $ ./test.py
 ```
 note: I'm pretty sure I did not write the tests correctly and there is probably a better way to do it.
-
-### TODO
-* Add pip installation
