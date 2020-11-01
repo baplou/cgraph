@@ -85,4 +85,3 @@ note: I'm pretty sure I did not write the tests correctly and there is probably 
 
 ### TODO
 * Add pip installation
-* Support for decimal numbers
