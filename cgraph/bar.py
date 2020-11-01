@@ -17,9 +17,10 @@ class BarGraph:
       "reset":"\x1b[0m"
     }
 
+    self.error_check()
     self.setup()
 
-  def setup(self):
+  def error_check(self):
     if len(self.nums) != len(self.lines):
       print("cgraph error: labels list and numbers list must contain the same number of items")
       quit()
@@ -33,6 +34,12 @@ class BarGraph:
         print("cgraph error: number has to be equal to or more than the lowest number argument")
         quit()
 
+    for label in self.lines:
+      if type(label) == "<class 'int'>":
+        print"cgraph error: type(label) cannot be integer")
+        quit()
+
+  def setup(self):
     label_max_length = self.longest_label(self.lines)
     scpn = self.str_char_per_num(self.max_spaces, self.highest_num, self.lowest_num)
 
@@ -89,3 +96,7 @@ class BarGraph:
       return False
     else:
       return True
+
+if __name__ == "__main__":
+    b = BarGraph(1, 7, [5, 6, 6, 7], ["Math", "English", "Spanish", 34], 70)
+    b.show()
