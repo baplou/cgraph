@@ -22,38 +22,38 @@ class BarGraph:
 
   def error_check(self):
     # incorrect type checking
-    if type(self.lowest_num) is not int or float:
-      print(f"cgraph error: {self.lowest_num} must be type int or type float.")
+    if type(self.lowest_num) is not int:
+      print(f"cgraph error: value '{self.lowest_num}' must be type int.")
       quit()
 
-    if type(self.highest_num) is not int or float:
-      print(f"cgraph error: {self.highest_num} must be type int or type float.")
+    if type(self.highest_num) is not int:
+      print(f"cgraph error: value '{self.highest_num}' must be type int.")
       quit()
 
     if type(self.nums) is not list:
-      print(f"cgraph error: {self.nums} must be type list.")
+      print(f"cgraph error: value '{self.nums}' must be type list.")
       quit()
 
     for num in self.nums:
-      if type(num) is not int or float:
-        print(f"cgraph error: {num} must be type int or type float.")
+      if type(num) is not int:
+        print(f"cgraph error: value '{num}' must be type int.")
         quit()
 
     if type(self.lines) is not list:
-      print(f"cgraph error: {self.lines} must be type list.")
+      print(f"cgraph error: value '{self.lines}' must be type list.")
       quit()
 
     for label in self.lines:
       if type(label) is not str:
-        print(f"cgraph error: {label} must be type str.")
+        print(f"cgraph error: value '{label}' must be type str.")
         quit()
 
     if type(self.max_spaces) is not int:
-      print("cgraph error: {self.max_spaces} must be type int.")
+      print("cgraph error: value '{self.max_spaces}' must be type int.")
       quit()
 
     if type(self.color) is not bool:
-      print("cgraph error: {self.color} must be type bool.")
+      print("cgraph error: value '{self.color}' must be type bool.")
       quit()
 
     # more specific error checking
@@ -84,7 +84,7 @@ class BarGraph:
     # spaces in every line are equal
     for i in range(len(self.lines)):
       if len(self.lines[i]) < label_max_length:
-        for x in range(label_max_length - (len(self.lines[i]))):
+        for x in range(label_max_length - len(self.lines[i])):
           self.lines[i] += " "
 
       if self.color:
@@ -97,7 +97,7 @@ class BarGraph:
 
       # how many characters to fill each line with
       # scpn is defined above
-      for x in range(self.nums[i]):
+      for x in range(int(self.nums[i])):
         self.lines[i] += scpn
 
       # adding the final number for each line
@@ -136,5 +136,5 @@ class BarGraph:
       return True
 
 if __name__ == "__main__":
-    b = BarGraph(1, 7, "yes", ["Math", "English", "Spanish", "Humanities"], 70)
+    b = BarGraph(1, 7, [1, 2, 5, 7], ["Math", "English", "Spanish", "Humanities"], 50)
     b.show()
