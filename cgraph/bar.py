@@ -7,6 +7,14 @@ class BarGraph:
     self.color = color
     self.lines = labels
 
+    self.errors = []
+
+    for i in range(13):
+      self.errors.append(False)
+      
+    self.error_counter = 0
+
+    self.run = True
     self.colors = {
       "aqua":"\x1b[7;36;46m",
       "pink":"\x1b[7;35;45m",
@@ -18,64 +26,86 @@ class BarGraph:
     }
 
     self.error_check()
-    self.setup()
+    if self.run:
+        self.setup()
 
   def error_check(self):
-    # incorrect type checking
+    # incorrect argument type errors checking
     if type(self.lowest_num) is not int:
-      print(f"cgraph error: value '{self.lowest_num}' must be type int.")
-      quit()
+      print(f"cgraph error 0.1: value '{self.lowest_num}' must be type int.")
+      self.errors[0] = True
 
     if type(self.highest_num) is not int:
-      print(f"cgraph error: value '{self.highest_num}' must be type int.")
-      quit()
+      print(f"cgraph error 0.2: value '{self.highest_num}' must be type int.")
+      self.errors[1] = True
 
     if type(self.nums) is not list:
-      print(f"cgraph error: value '{self.nums}' must be type list.")
-      quit()
-
-    for num in self.nums:
-      if type(num) is not int:
-        print(f"cgraph error: value '{num}' must be type int.")
-        quit()
+      print(f"cgraph error 0.3: value '{self.nums}' must be type list.")
+      self.errors[2] = True
 
     if type(self.lines) is not list:
-      print(f"cgraph error: value '{self.lines}' must be type list.")
-      quit()
-
-    for label in self.lines:
-      if type(label) is not str:
-        print(f"cgraph error: value '{label}' must be type str.")
-        quit()
+      print(f"cgraph error 0.4: value '{self.lines}' must be type list.")
+      self.errors[3] = True
 
     if type(self.max_spaces) is not int:
-      print("cgraph error: value '{self.max_spaces}' must be type int.")
-      quit()
+      print("cgraph error 0.5: value '{self.max_spaces}' must be type int.")
+      self.errors[4] = True
 
     if type(self.color) is not bool:
-      print("cgraph error: value '{self.color}' must be type bool.")
-      quit()
+      print("cgraph error 0.6: value '{self.color}' must be type bool.")
+      self.errors[5] = True
+
+    if self.errors[2] == False:
+      for num in self.nums:
+        if type(num) is not int:
+          print(f"cgraph error 0.7: value '{num}' must be type int.")
+          self.errors[6] = True
+
+    if self.errors[3] == False:
+      for label in self.lines:
+        if type(label) is not str:
+          print(f"cgraph error 0.8: value '{label}' must be type str.")
+          self.errors[7] = True
 
     # more specific error checking
-    if len(self.nums) != len(self.lines):
-      print("cgraph error: labels list and numbers list must must be the same length.")
-      quit()
-    
-    for num in self.nums:
-      if num > self.highest_num:
-        print("cgraph error: number must be equal to or less than the highest number argument.")
-        quit()
+    if self.errors[2] == False and self.errors[3] == False:
+      if len(self.nums) != len(self.lines):
+        print("cgraph error 1.0: labels list and numbers list must must be the same length.")
+        self.errors[8] = True
+      
+    if self.errors[2] == False and self.errors[6] == False:
+      for num in self.nums:
+        if self.errors[1] == False:
+          if num > self.highest_num:
+            print(f"cgraph error 1.1: number '{num}' must be equal to or less than the highest number argument.")
+            self.errors[9] = True
 
-      elif num < self.lowest_num:
-        print("cgraph error: number must be equal to or more than the lowest number argument.")
-        quit()
+        if self.errors[0] == False:
+          if num < self.lowest_num:
+            print(f"cgraph error 1.2: number '{num}' must be equal to or more than the lowest number argument.")
+            self.errors[10] = True
 
-    if self.lowest_num > self.highest_num:
-      print("cgraph error: lowest number argument cannot be larger than highest number argument.")
-      quit()
+    if self.errors[0] == False and self.errors[1] == False:
+      if self.lowest_num > self.highest_num:
+        print("cgraph error 1.3: lowest number argument cannot be larger than highest number argument.")
+        self.errors[11] = True
 
-    if self.max_spaces < self.highest_num:
-      print("cgraph error: the maximum amount of spaces cannot be smaller than the highest number possible.")
+    if self.errors[1] == False and self.errors[4] == False:
+      if self.max_spaces < self.highest_num:
+        print("cgraph error 1.4: the maximum amount of spaces cannot be smaller than the highest number possible.")
+        self.errors[12] = True
+
+    # counting all the errors into self.error_counter
+    for boolean in self.errors:
+      if boolean:
+        self.error_counter += 1
+
+    # printing the errors to the user
+    if self.error_counter > 0:
+      print("------------------------------------------------------------------------")
+      print(f"{self.error_counter} errors generated")
+      print("------------------------------------------------------------------------")
+      self.run = False
 
   def setup(self):
     label_max_length = self.longest_label(self.lines)
@@ -136,5 +166,4 @@ class BarGraph:
       return True
 
 if __name__ == "__main__":
-    b = BarGraph(1, 7, [1, 2, 5, 7], ["Math", "English", "Spanish", "Humanities"], 50)
-    b.show()
+  nb = BarGraph(1, 7, ["this should be int", 2, 3, 5], [4832094, "Science", "Humanities", "English"], 20, "this should be boolean")
