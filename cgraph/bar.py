@@ -37,7 +37,7 @@ class BarGraph:
 
     label_max_length = self.longest_label(self.labels)
 
-    # space and label (spaces are uneven)
+    # adding the label to every line in self.lines
     for label in self.labels:
       self.lines.append(f"{label}")
 
@@ -56,11 +56,12 @@ class BarGraph:
         self.lines[i] += " "
 
     # how many characters to fill each line with
-    character_per_num = int(self.max_spaces/(self.highest_num - self.lowest_num))
-    for i in range(len(self.nums)):
+    # scpn = string x character per num
+    scpn = self.str_char_per_num(self.max_spaces, self.highest_num, self.lowest_num)
+
+    for i in range(len(self.lines)):
       for x in range(self.nums[i]):
-        for c in range(character_per_num):
-          self.lines[i] += "x"
+        self.lines[i] += scpn
 
     # adding the final number for each line
     for i in range(len(self.lines)):
@@ -72,6 +73,16 @@ class BarGraph:
   def show(self):
     for line in self.lines:
       print(line)
+      
+  @staticmethod
+  def str_char_per_num(max_spaces, highest_num, lowest_num):
+    number = int(max_spaces/(highest_num - lowest_num))
+    return_value = ""
+
+    for i in range(number):
+      return_value += "x"
+
+    return return_value
 
   @staticmethod
   def longest_label(labels):
@@ -87,9 +98,3 @@ class BarGraph:
       return False
     else:
       return True
-
-if __name__ == "__main__":
-  print('')
-  b = BarGraph(1, 6, [6, 4, 5, 6], ["Math", "Science", "English", "PE"], 50, False)
-  b.show() # printing the graph
-  print('')
