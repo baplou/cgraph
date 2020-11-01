@@ -3,11 +3,10 @@ class BarGraph:
     self.lowest_num = lowest_num
     self.highest_num = highest_num
     self.nums = nums
-    self.labels = labels
     self.max_spaces = max_spaces
     self.color = color
+    self.lines = labels
 
-    self.lines = []
     self.colors = {
       "aqua":"\x1b[7;36;46m",
       "pink":"\x1b[7;35;45m",
@@ -21,8 +20,7 @@ class BarGraph:
     self.setup()
 
   def setup(self):
-    # error checking
-    if len(self.nums) != len(self.labels):
+    if len(self.nums) != len(self.lines):
       print("cgraph error: labels list and numbers list must contain the same number of items")
       quit()
     
@@ -35,13 +33,10 @@ class BarGraph:
         print("cgraph error: number has to be equal to or more than the lowest number argument")
         quit()
 
-    label_max_length = self.longest_label(self.labels)
+    label_max_length = self.longest_label(self.lines)
+    scpn = self.str_char_per_num(self.max_spaces, self.highest_num, self.lowest_num)
 
-    # adding the label to every line in self.lines
-    for label in self.labels:
-      self.lines.append(f"{label}")
-
-    # the length of every item in self.lines is equal
+    # spaces in every line are equal
     for i in range(len(self.lines)):
       if len(self.lines[i]) < label_max_length:
         for x in range(label_max_length - (len(self.lines[i]))):
@@ -55,16 +50,12 @@ class BarGraph:
       else:
         self.lines[i] += " "
 
-    # how many characters to fill each line with
-    # scpn = string x character per num
-    scpn = self.str_char_per_num(self.max_spaces, self.highest_num, self.lowest_num)
-
-    for i in range(len(self.lines)):
+      # how many characters to fill each line with
+      # scpn is defined above
       for x in range(self.nums[i]):
         self.lines[i] += scpn
 
-    # adding the final number for each line
-    for i in range(len(self.lines)):
+      # adding the final number for each line
       if self.color:
         self.lines[i] += f"{self.colors['reset']} {float(self.nums[i])}"
       else:
