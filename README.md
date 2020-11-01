@@ -1,6 +1,20 @@
 ## cgraph
 This allows you to make graphs for your command line tools.
 
+### Instalation (right now)
+```
+$ git clone https://github.com/baplou/command-line-graph.git
+$ mv command-line-graph/cgraph .
+$ rm -rf command-line-graph
+$ ls
+projecy-file.py cgraph
+```
+Then, inside your python file write:
+```python
+from cgraph.bar import BarGraph # importing bar graph
+from cgraph.graph import CoordinateGraph # import coordinate plane graph
+```
+
 ### Coordinate Plane Graph
 Makes it possible for you to make a basic xy graph for a terminal interface instead of a GUI.
 
@@ -42,7 +56,7 @@ The colored output is done using [ASCII escape codes](https://en.wikipedia.org/w
 An example using school grades (A = 6, B = 5, and so on). There are no + or - in the grades as to
 not make this example too complicated.
 
-#### With Color
+#### Bar Graphs with color
 ```python
 b = BarGraph(1, 6, [6, 4, 5, 6], ["Math", "Science", "English", "PE"], 50) # making the graph
 b.show() # printing the graph
@@ -52,7 +66,7 @@ Output:
 ![](https://github.com/baplou/cgraph/blob/master/images/example-color.png?raw=true)
 
 
-#### Without color
+#### Bar Graphs without color
 ```python
 b = BarGraph(1, 6, [6, 4, 5, 6], ["Math", "Science", "English", "PE"], 50, False) # making the graph
 b.show() # printing the graph
@@ -61,21 +75,14 @@ b.show() # printing the graph
 Output:
 ![](https://github.com/baplou/cgraph/blob/master/images/example-nocolor.png?raw=true)
 
-### Instalation (right now)
+### Running tests
 ```
-user@computer:~/project-name$ git clone https://github.com/baplou/command-line-graph.git
-user@computer:~/project-name$ mv command-line-graph/cgraph .
-user@computer:~/project-name$ rm -rf command-line-graph
-user@computer:~/project-name$ ls
-file.py cgraph
+$ git clone https://github.com/baplou/command-line-graph.git
+$ cd command-line-graph
+$ ./test.py
 ```
-Then, inside file.py write:
-```python
-from cgraph.bar import BarGraph # importing bar graph
-from cgraph.graph import CoordinateGraph # import coordinate plane graph
-```
+note: I'm pretty sure I did not write the tests correctly and there is probably a better way to do it.
 
 ### TODO
-* Write unit tests
 * Add pip installation
 * Support for decimal numbers
