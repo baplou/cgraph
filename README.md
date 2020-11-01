@@ -7,7 +7,7 @@ $ git clone https://github.com/baplou/command-line-graph.git
 $ mv command-line-graph/cgraph .
 $ rm -rf command-line-graph
 $ ls
-projecy-file.py cgraph
+project-file.py cgraph
 ```
 Then, inside your python file write:
 ```python
