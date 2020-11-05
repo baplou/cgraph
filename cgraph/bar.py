@@ -137,7 +137,7 @@ class BarGraph:
     if self.run:
       for line in self.lines:
         print(line)
-      
+
   @staticmethod
   def str_char_per_num(max_spaces, highest_num, lowest_num):
     number = int(max_spaces/(highest_num - lowest_num))
@@ -161,4 +161,4 @@ class BarGraph:
     if number % 2 == 0:
       return False
     else:
-     return True
+      return True
